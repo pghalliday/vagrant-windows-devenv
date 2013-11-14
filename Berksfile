@@ -1,3 +1,3 @@
 site :opscode
 
-cookbook 'devenv', path: 'cookbooks/devenv'
+cookbook 'vagrant-windows-devenv', path: 'cookbooks/vagrant-windows-devenv'
