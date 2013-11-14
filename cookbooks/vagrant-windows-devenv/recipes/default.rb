@@ -8,14 +8,19 @@ include_recipe "git"
 include_recipe "rbenv::default"
 include_recipe "rbenv::ruby_build"
 
-rbenv_ruby "1.9.3-p448"
+rbenv_ruby node[:vagrant_windows_devenv][:ruby_version]
 
 rbenv_gem "bundler" do
-  ruby_version "1.9.3-p448"
+  ruby_version node[:vagrant_windows_devenv][:ruby_version]
 end
 
 magic_shell_environment 'EDITOR' do
   value 'vim'
+end
+
+# set the default ruby version
+magic_shell_environment 'RBENV_VERSION' do
+  value node[:vagrant_windows_devenv][:ruby_version]
 end
 
 # This works around the company firewall which
